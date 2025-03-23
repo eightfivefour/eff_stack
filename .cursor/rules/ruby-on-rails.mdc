@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Ruby on Rails Development Rules and Guidelines
+
+## Stack
+- Postgresql
+- Rails 8
+- ViewComponent (with view_component-contrib)
+- Vite
+- Typescript
+- Stimlus
+- Rspec for Rails testing
+- Vitest for Typescript testing

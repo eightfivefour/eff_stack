@@ -1,0 +1,175 @@
+---
+description: 
+globs: app/frontend/components/**/*.rb,app/frontend/components/**/*.ts,frontend/components/**/*.html.erb
+alwaysApply: false
+---
+# ViewComponent with view_component-contrib Guide
+
+## Setup and Configuration
+
+## Project Structure
+
+Project structure:
+
+```
+app/
+├── frontend/
+│   ├── components/
+│   │   ├── application_view_component.rb
+│   │   └── your_components/
+│   │       ├── component.rb
+│   │       ├── component.html.erb
+│   │       ├── controller.ts
+│   │       ├── index.css
+│   │       └── preview.rb
+```
+
+## Component Organization
+
+### Base Component Class
+
+```ruby
+class ApplicationViewComponent < ViewComponentContrib::Base
+  # Common functionality for all components
+end
+```
+
+### Component Structure
+
+Each component should be organized in its own directory with the following files:
+
+1. `component.rb` - Component Ruby class
+2. `component.html.erb` - Component template
+3. `controller.js` - Stimulus controller (optional)
+4. `index.css` - Component styles
+5. `preview.rb` - Component preview for development
+
+## Features and Best Practices
+
+### 1. Initialization with dry-initializer
+
+Instead of manual initialization:
+
+```ruby
+class FlashAlert::Component < ApplicationViewComponent
+  option :type, default: proc { "success" }
+  option :duration, default: proc { 3000 }
+  option :body
+end
+```
+
+### 2. I18n Integration
+
+Translations are namespaced under `view_components`:
+
+```yaml
+# config/locales/en.yml
+en:
+  view_components:
+    flash_alert:
+      title: "Alert"
+      close: "Close"
+```
+
+In your component:
+
+```ruby
+<%= t(".title") %> # Automatically scoped to the component
+```
+
+### 3. Collection Rendering
+
+```ruby
+class PostCard::Component < ApplicationViewComponent
+  with_collection_parameter :post
+
+  option :post
+end
+```
+
+Usage:
+
+```erb
+<%= render PostCard::Component.with_collection(@posts) %>
+```
+
+### 4. Wrapped Components
+
+For components that need wrapping HTML:
+
+```erb
+<%= render Example::Component.new.wrapped do |wrapper| %>
+  <div class="wrapper">
+    <%= wrapper.component %>
+  </div>
+<% end %>
+```
+
+## Integration with Frontend Tools
+
+### 1. Stimulus Integration
+
+Controller naming convention:
+
+```javascript
+// app/frontend/components/flash_alert/controller.js
+import { Controller } from "@hotwired/stimulus";
+
+export class Controller extends Controller {
+  connect() {
+    // Component logic
+  }
+}
+```
+
+## Best Practices
+
+1. **Component Isolation**: Keep components self-contained with their own styles, JavaScript, and translations.
+
+2. **Naming Conventions**:
+
+   - Component directories: `snake_case`
+   - Component classes: `PascalCase`
+   - CSS classes: Use the provided `class_for` helper
+   - Stimulus controllers: Match component names
+
+3. **Testing**:
+
+   - Use component previews for visual testing
+   - Write unit tests for component logic
+   - Test JavaScript functionality separately
+
+4. **Performance**:
+   - Use `#render?` for conditional rendering
+   - Leverage collection rendering for lists
+   - Keep components focused and small
+
+## Development Tools
+
+1. **Component Previews**:
+
+   - Located in `app/frontend/components/previews`
+   - Great for development and documentation
+   - Support multiple preview scenarios
+
+2. **Hot Reloading**:
+   - Works with both templates and styles
+
+## Common Gotchas and Solutions
+
+1. **Stimulus Controller Registration**:
+
+   - Ensure controllers are properly registered
+   - Follow naming conventions strictly
+   - Check for JavaScript console errors
+
+2. **Translation Scoping**:
+   - Keep translations under `view_components` namespace
+   - Use relative keys in templates
+   - Override scope when needed
+
+## Additional Resources
+
+- [ViewComponent Documentation](mdc:https:/viewcomponent.org)
+- [view_component-contrib GitHub](mdc:https:/github.com/palkan/view_component-contrib)
+- [Stimulus Handbook](mdc:https:/stimulus.hotwired.dev/handbook/introduction)
