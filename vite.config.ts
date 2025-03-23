@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite';
+import RubyPlugin from 'vite-plugin-ruby';
+import RailsPlugin from 'vite-plugin-rails';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  plugins: [
+    RubyPlugin(),
+    tailwindcss(),
+    RailsPlugin({
+      envVars: { RAILS_ENV: 'development' },
+      envOptions: { defineOn: 'import.meta.env' },
+      fullReload: {
+        additionalPaths: ['config/routes.rb', 'app/views/**/*.html.erb'],
+      }
+    }),
+  ],
+  build: { sourcemap: false },
+});
