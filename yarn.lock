@@ -2428,7 +2428,6 @@ __metadata:
     typescript: "npm:^5.3.3"
     vite: "npm:^5.4.14"
     vite-plugin-rails: "npm:^0.5.0"
-    vite-plugin-ruby: "npm:^5.1.1"
   languageName: unknown
   linkType: soft
 
@@ -2773,7 +2772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-ruby@npm:^5.0.0, vite-plugin-ruby@npm:^5.1.1":
+"vite-plugin-ruby@npm:^5.0.0":
   version: 5.1.1
   resolution: "vite-plugin-ruby@npm:5.1.1"
   dependencies:

@@ -38,5 +38,8 @@ module EffStack
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.view_component.preview_paths = ["app/frontend/components"]
+    config.view_component.view_component_path = "app/frontend/components"
   end
 end
