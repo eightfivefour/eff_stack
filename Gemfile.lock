@@ -90,7 +90,7 @@ GEM
     crass (1.0.6)
     css_parser (1.21.1)
       addressable
-    database_cleaner-active_record (2.1.0)
+    database_cleaner-active_record (2.2.0)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
@@ -384,7 +384,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.18.4)
   brakeman (~> 7.0.0)
-  database_cleaner-active_record (~> 2.1.0)
+  database_cleaner-active_record (~> 2.2.0)
   debug (~> 1.10.0)
   factory_bot_rails (~> 6.4.0)
   faker (~> 3.2.0)
