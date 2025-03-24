@@ -30,7 +30,7 @@ group :development, :test do
   gem "debug", "~> 1.10.0"
   gem "brakeman", "~> 7.0.0"
   gem "standard-rails", "~> 1.2.0"
-  
+
   # Testing
   gem "rspec-rails", "~> 6.1.0"
   gem "factory_bot_rails", "~> 6.4.0"
