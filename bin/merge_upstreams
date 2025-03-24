@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "open3"
+
+def get_remotes
+  stdout, _stderr, _status = Open3.capture3("git remote")
+  stdout.split("\n").reject { |remote| remote == "origin" }
+end
+
+def get_commits_with_eff_prefix(remote)
+  stdout, _stderr, _status = Open3.capture3("git log #{remote}/main --grep='EFF -' --format='%H %s'")
+  stdout.split("\n").map do |line|
+    hash, *message_parts = line.split(" ")
+    message = message_parts.join(" ")
+    { hash: hash, message: message }
+  end
+end
+
+def cherry_pick_commit(commit)
+  puts "Cherry-picking: #{commit[:message]}"
+  _stdout, stderr, status = Open3.capture3("git cherry-pick #{commit[:hash]}")
+  
+  unless status.success?
+    puts "Failed to cherry-pick commit: #{commit[:message]}"
+    puts "Error: #{stderr}"
+    puts "Aborting cherry-pick..."
+    system("git cherry-pick --abort")
+    return false
+  end
+  
+  true
+end
+
+def main
+  remotes = get_remotes
+  
+  if remotes.empty?
+    puts "No non-origin remotes found. Please add remotes to cherry-pick from."
+    exit 1
+  end
+  
+  puts "Found remotes: #{remotes.join(", ")}"
+  
+  remotes.each do |remote|
+    puts "\nProcessing remote: #{remote}"
+    puts "Fetching latest changes..."
+    system("git fetch #{remote}")
+    
+    commits = get_commits_with_eff_prefix(remote)
+    
+    if commits.empty?
+      puts "No commits with 'EFF -' prefix found in #{remote}"
+      next
+    end
+    
+    puts "Found #{commits.length} commits with 'EFF -' prefix"
+    
+    commits.reverse_each do |commit|
+      success = cherry_pick_commit(commit)
+      unless success
+        puts "Skipping remaining commits from #{remote} due to cherry-pick failure"
+        break
+      end
+    end
+  end
+end
+
+main 
