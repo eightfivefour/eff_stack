@@ -17,7 +17,7 @@ gem "propshaft", "~> 1.1.0"
 gem "vite_rails", "~> 3.0.17"
 gem "stimulus-rails", "~> 1.3"
 gem "turbo-rails", "~> 2.0"
-gem "view_component", "~> 3.11"
+gem "view_component", "~> 3.22"
 gem "view_component-contrib", "~> 0.2.2"
 
 # API
