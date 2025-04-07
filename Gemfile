@@ -28,7 +28,7 @@ gem "kamal", "~> 2.5.3"
 
 group :development, :test do
   gem "debug", "~> 1.10.0"
-  gem "brakeman", "~> 7.0.0"
+  gem "brakeman", "~> 7.0.2"
   gem "standard-rails", "~> 1.2.0"
 
   # Testing
