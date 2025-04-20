@@ -1,0 +1,34 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Generator Usage Guidelines
+
+## Always Use Available Generators
+
+- **Always check if a generator exists before creating files manually.** Rails and this project provide several generators that create files with proper structure and naming conventions.
+- Run `bin/rails generate` to see a list of all available generators.
+- Before creating any new component, model, controller, or other file, first check if there's a generator for it.
+
+## Common Generators
+
+- `bin/rails generate view_component NAME [attribute:type]...` - Create a new ViewComponent
+- `bin/rails generate model NAME [field:type]...` - Create a new model
+- `bin/rails generate controller NAME [action]...` - Create a new controller
+- `bin/rails generate stimulus NAME [action]...` - Create a new Stimulus controller
+- `bin/rails generate job NAME` - Create a new background job
+
+## Generator Benefits
+
+- Ensures consistent file structure and naming
+- Creates associated test files automatically
+- Follows project conventions
+- Saves time and reduces errors
+
+## Customizing Generated Code
+
+If you need to customize code created by generators:
+1. Generate the files first
+2. Then modify the generated code as needed
+3. Never bypass generators for convenience

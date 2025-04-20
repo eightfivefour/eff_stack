@@ -1,0 +1,36 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Backend Architecture
+
+This is a Ruby on Rails 8.0 application with a focus on modern patterns and practices.
+
+## MVC Structure
+
+- **Models**: [app/models](mdc:app/models/) - ActiveRecord models for database interaction
+- **Views**: [app/views](mdc:app/views/) - Traditional ERB templates and ViewComponents
+- **Controllers**: [app/controllers](mdc:app/controllers/) - Action controllers
+
+## Database
+
+- PostgreSQL database
+- ActiveRecord ORM
+- Migrations in [db/migrate](mdc:db/migrate/)
+
+## API
+
+- JSON responses built with Jbuilder
+- API controllers would be in [app/controllers](mdc:app/controllers/)
+
+## Background Jobs
+
+- ActiveJob framework
+- Job classes in [app/jobs](mdc:app/jobs/)
+
+## Testing
+
+- RSpec for testing: [spec](mdc:spec/)
+- FactoryBot for test data
+- Shoulda Matchers for additional testing assertions

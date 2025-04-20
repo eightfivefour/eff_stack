@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Structure
+
+This is a Ruby on Rails 8.0 application with a modern frontend setup using Vite, Stimulus, and ViewComponent.
+
+## Main Directories
+
+- [app](mdc:app): Contains the MVC components (models, views, controllers) and frontend code
+- [config](mdc:config): Contains configuration for routes, database, environments, etc.
+- [db](mdc:db): Contains database migrations and schema
+- [lib](mdc:lib): Contains utility code and custom tasks
+- [spec](mdc:spec): Contains RSpec tests
+
+## Key Files
+
+- [Gemfile](mdc:Gemfile): Ruby dependencies
+- [package.json](mdc:package.json): JavaScript dependencies
+- [config/routes.rb](mdc:config/routes.rb): Application routes
+- [vite.config.ts](mdc:vite.config.ts): Vite configuration for frontend assets
+- [config/application.rb](mdc:config/application.rb): Main application configuration
+
+## Key Directives
+- use the Rails MCP tooling whenever possible.

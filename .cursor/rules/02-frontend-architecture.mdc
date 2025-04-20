@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Frontend Architecture
+
+This application uses a modern frontend stack with Vite, ViewComponent, Stimulus, and Turbo.
+
+## Main Technologies
+
+- **Vite**: Used for bundling JavaScript assets with [vite_rails](mdc:app/frontend/entrypoints)
+- **ViewComponent**: Component-based view approach in [app/frontend/components](mdc:app/frontend/components)
+- **Stimulus**: JavaScript framework for "just enough JavaScript"
+- **Turbo**: Makes navigating your web application faster
+
+## Component Structure
+
+Components follow the ViewComponent pattern:
+- Each component has its own directory with component.rb and component.html.erb files
+- Component previews are available for visual testing
+- Base components inherit from [ApplicationViewComponent](mdc:app/frontend/components/application_view_component.rb)
+
+## Asset Handling
+
+- JavaScript and CSS are processed through Vite
+- Entry points are in [app/frontend/entrypoints](mdc:app/frontend/entrypoints)
+- Tailwind CSS is used for styling

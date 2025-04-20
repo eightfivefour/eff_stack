@@ -1,0 +1,35 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# ViewComponent Patterns
+
+This application uses ViewComponent to create reusable, testable, and encapsulated view components.
+
+## Component Structure
+
+Components are located in [app/frontend/components](mdc:app/frontend/components/) and follow this structure:
+
+- Component directory, e.g., `button/`
+  - `component.rb` - Ruby class defining props and behavior
+  - `component.html.erb` - Template
+  - `preview.rb` - Preview class for component playground
+
+## Base Components
+
+- [ApplicationViewComponent](mdc:app/frontend/components/application_view_component.rb) - Base class for all components
+- [ApplicationViewComponentPreview](mdc:app/frontend/components/application_view_component_preview.rb) - Base preview class
+
+## Generator
+
+The application includes a custom component generator:
+```ruby
+rails generate view_component NAME [attribute:type]...
+```
+
+This generator creates the component files in [app/frontend/components](mdc:app/frontend/components/) based on templates in [lib/generators/view_component/templates](mdc:lib/generators/view_component/templates/).
+
+## Lookbook Integration
+
+Components can be previewed in development using the Lookbook gem at `/lookbook`.

@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Development Workflow
+
+## Getting Started
+
+To start the development server:
+```bash
+# Install dependencies
+bundle install
+yarn install
+
+# Setup database
+rails db:create db:migrate
+
+# Start the server
+bin/dev
+```
+
+## Key Commands
+
+- `bin/dev` - Start the development server with Vite
+- `bin/rails console` - Start Rails console
+- `bin/rails generate` - Use Rails generators
+- `bin/rails db:migrate` - Run pending migrations
+- `bundle exec rspec` - Run tests
+
+## Generator Usage
+
+- **Always use generators when available** before creating files manually
+- Run `bin/rails generate` to see all available generators
+- See the [Generator Usage Guidelines](mdc:.cursor/rules/06-generator-usage.mdc) for more details
+
+## Testing
+
+- RSpec for Ruby tests in [spec](mdc:spec)
+- Component tests should be in [spec/frontend/components](mdc:spec/frontend/components)
+- System tests for components in [spec/system/components](mdc:spec/system/components)
+
+## Code Quality
+
+- Standard Ruby for Ruby linting
+- ESLint for JavaScript linting [.eslintrc.json](mdc:.eslintrc.json)
+
+## Deployment
+
+This application uses Kamal for deployment configuration in [.kamal](mdc:.kamal).
