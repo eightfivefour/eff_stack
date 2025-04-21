@@ -42,7 +42,7 @@ end
 
 group :development do
   gem "web-console", "~> 4.2.1"
-  gem "lookbook", "~> 2.2"
+  gem "lookbook", "~> 2.3"
 end
 
 gem "fast-mcp", "~> 1.1"
