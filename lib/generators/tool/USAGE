@@ -1,0 +1,16 @@
+Description:
+    Generates a new tool that inherits from ApplicationTool
+
+Example:
+    rails generate tool NAME
+
+    This will create:
+        app/tools/NAME_tool.rb
+        spec/tools/NAME_tool_spec.rb
+
+    Example:
+        rails generate tool fetch_user
+
+    This will create:
+        app/tools/fetch_user_tool.rb
+        spec/tools/fetch_user_tool_spec.rb 

@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+class <%= class_name.camelize %>Tool < ApplicationTool
+  description "<%= class_name.humanize %>"
+
+  def call(**)
+    # Add your tool implementation here
+    { result: "Tool implementation" }
+  end
+end 

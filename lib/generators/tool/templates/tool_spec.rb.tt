@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe <%= class_name.camelize %>Tool do
+  let(:tool) { described_class.new }
+
+  describe "#call" do
+    subject { tool.call }
+
+    it "returns a hash with expected keys" do
+      expect(subject).to include(:result)
+    end
+  end
+end 
