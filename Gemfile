@@ -45,4 +45,4 @@ group :development do
   gem "lookbook", "~> 2.2"
 end
 
-gem "fast-mcp", "~> 1.1"
+gem "fast-mcp", "~> 1.3"
