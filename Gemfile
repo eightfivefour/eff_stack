@@ -6,7 +6,7 @@ gem "rails", "~> 8.0.2"
 # Database & Cache
 gem "pg", "~> 1.5.9"
 gem "solid_cache", "~> 1.0.7"
-gem "solid_cable", "~> 3.0.7"
+gem "solid_cable", "~> 3.0.8"
 
 # Server & Performance
 gem "puma", "~> 6.6.0"
