@@ -32,7 +32,7 @@ group :development, :test do
   gem "standard-rails", "~> 1.2.0"
 
   # Testing
-  gem "rspec-rails", "~> 6.1.0"
+  gem "rspec-rails", "~> 8.0.1"
   gem "factory_bot_rails", "~> 6.4.0"
   gem "faker", "~> 3.2.0"
   gem "shoulda-matchers", "~> 6.1.0"
